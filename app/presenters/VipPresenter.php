@@ -93,16 +93,17 @@ class VipPresenter extends BasePresenter
         $form->addText('release_in', 'Rok vydani:', 4, 4)
             ->setType('number');
         $form->addSelect('id_distribution', 'Distributor:', $this->getAllDistributions());
-        $form->addCheckbox('is_free', ' Zdarma');
-        $form->addCheckbox('is_multiplayer', 'Multiplayer:');
-        $form->addCheckbox('is_on_pc', 'Pro PC:')
-            ->setDefaultValue(TRUE);
-        $form->addCheckbox('is_on_xbox', 'Pro XBOX:')
-            ->setDefaultValue(TRUE);;
-        $form->addCheckbox('is_on_ps', 'Pro PlayStation:')
-            ->setDefaultValue(TRUE);;
-        $form->addCheckbox('is_on_wii', 'Pro Wii:');
         $form->addMultiSelect('games_genres', 'Zanry:', $this->getAllGenres());
+        $form->addCheckbox('is_free', ' Zdarma');
+        $form->addCheckbox('is_multiplayer', 'Multiplayer');
+        $form->addCheckbox('is_on_pc', 'Pro PC')
+            ->setDefaultValue(TRUE);
+        $form->addCheckbox('is_on_xbox', 'Pro XBOX')
+            ->setDefaultValue(TRUE);;
+        $form->addCheckbox('is_on_ps', 'Pro PlayStation')
+            ->setDefaultValue(TRUE);;
+        $form->addCheckbox('is_on_wii', 'Pro Wii');
+
         $form->addUpload('preview_img', 'Obrazek:');
 
         $form->addSubmit('Add', 'Pridat');
@@ -115,30 +116,29 @@ class VipPresenter extends BasePresenter
     {
         $values = $form->getValues();
 
-        var_dump($values->preview_img);
+        $img_name = $values->preview_img->getTemporaryFile(); //get tmp file location
+        $image = Nette\Utils\Image::fromFile($img_name); //creating image object from tmp file
+        $image->resize(250, null); // resize to 250px on top&bottom side
 
-        //creating unique image name
-        $pathToImage = $this->imageStorage->dir."/games_previews/".Nette\Utils\Strings::random(6).".png";
-        while ($this->database->table('games')->where('preview_img', $pathToImage)->count() > 0) {
+        $pathToImage = $this->imageStorage->dir."/games_previews/".Nette\Utils\Strings::random(6).".png"; //creating unique image name
+        while ($this->database->table('games')->where('preview_img', $pathToImage)->count() > 0) { //checking
             $pathToImage = $this->imageStorage->dir."/games_previews/".Nette\Utils\Strings::random(6).".png";
         }
-        //TODO resize image
-        $values['preview_img']->move($pathToImage);
-        $values->preview_img   =  $pathToImage;
 
-        echo "<BR>";
-        var_dump($values->games_genres);
+        $image->save($pathToImage, 100,  Nette\Utils\Image::PNG); //checking
+        $values->preview_img   =  $pathToImage; //replacing image by string path to the file
 
-        $genres = $values->games_genres;
-        unset($values->games_genres);
+        $genres = $values->games_genres; //get all selected genres
+        unset($values->games_genres); //unset it from array of variables
+        //all others variable will be used by insert()
         $post = $this->database->table('games')->insert($values);
 
         foreach ($genres as $genre) {
             $this->database->table('games_genres')->insert(array(
-                "id_game" => $post->id_game,
+                                                            "id_game" => $post->id_game,
                                                             "id_genre" => $genre
                                                             ));
-        }
+        } //inserting all genres to the db
 
         $this->flashMessage("Hra #".$post->id_game." byla pridana do databazi", 'success');
 
