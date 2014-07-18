@@ -1,0 +1,194 @@
+{block head}
+    {include parent}
+    <link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/chosen.min.css">
+{/block}
+
+{block content}
+    {snippet newGameSnippet}
+        {form postForm class => "form-horizontal well"}
+                <fieldset>
+                    <legend>Legend</legend>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label game /}</label>
+                        <div class="col-lg-10">
+                            {input game class => "form-control", autofocus => TRUE }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label description/}</label>
+                        <div class="col-lg-10">
+                            {input description class => "form-control", rows => 5}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label release_in /}</label>
+                        <div class="col-lg-10">
+                            {input release_in class => "form-control"}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label id_distribution/}</label>
+                        <div class="col-lg-10">
+                            {input id_distribution class => "form-control"}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label games_genres/}</label>
+                        <div class="col-lg-10">
+                            {input games_genres class => "form-control chosen-select"}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_free class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_multiplayer class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_on_pc class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_on_xbox class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_on_ps class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            {input is_on_wii class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">{label preview_img/}</label>
+                        <div class="col-lg-10">
+                            {input preview_img class => "form-control"}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <button class="btn btn-default">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+        {/form}
+    {/snippet}
+    {snippet newDistribution}
+        {if $modalNewDistribution == 'true'}
+            <div class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"  aria-hidden="true">×</button>
+                            <h4 class="modal-title">Pridat novou distribuci</h4>
+                        </div>
+                        {snippet newDistributionAdded}
+                            {if isset($success)}
+                                <div class="modal-body">
+                                    <p>Nova distribuce byla pridana</p>
+
+                                    <script>
+                                        $.nette.ajax
+                                        ({
+                                            url: "?do=getLastDistribution"
+                                        });
+                                    </script>
+
+                                    {snippet lastDistriutionJS}
+                                        {if $newDistOption != "false"}
+                                            <script>
+                                                $("#frm-postForm-id_distribution").prepend({$newDistOption});
+//                                                $('option[value="new"]', "#frm-postForm-id_distribution").remove();
+                                                $('#frm-postForm-id_distribution').find('option[value={$newDistOptionVal}]').attr("selected",true);
+                                            </script>
+                                        {/if}
+                                    {/snippet}
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="distribution-modal-close-button" class="btn btn-primary" data-dismiss="modal">Cool</button>
+                                </div>
+                            {else}
+                                {form addNewDistributionForm class => "form-horizontal well"}
+                                <div class="modal-body">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">{label distribution /}</label>
+                                            <div class="col-lg-10">
+                                                {*<input type="text" class="form-control" id="inputEmail" placeholder="Email">*}
+                                                {input distribution class => "form-control", autofocus => TRUE}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="textArea" class="col-lg-2 control-label">{label description /}</label>
+                                            <div class="col-lg-10">
+                                                {input description class => "form-control"}
+                                                <span class="help-block">Popis distribuci není povinný. Informace o distribuci lze upravit později na stránce <a href="" class="btn disabled" disabled>distribucí</a>.</span>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="modal-footer">
+                                    {input add class => "btn btn-primary ajax", data-dismiss => "modal"}
+                                </div>
+                                {/form}
+                                <script>
+                                    $('.modal').modal('toggle');
+                                </script>
+                            {/if}
+                        {/snippet}
+                    </div>
+                </div>
+            </div>
+        {/if}
+    {/snippet}
+{/block}
+
+{block scripts}
+    {include parent}
+    {snippet jsNewModal, script}
+        {if $modalNewDistribution == 'true'}
+            {*$('.modal').modal('toggle');*}
+        {/if}
+        {*{if $modalNewDistribution == 'hide'}*}
+            {*alert('s');*}
+        {*{/if}*}
+    {/snippet}
+    <script>
+        var Nurl = {link updateSnippet!};
+//        alert('loaded');
+        $('#frm-postForm-id_distribution').click(function() {
+            if ($('#frm-postForm-id_distribution').val() == 'new') {
+                {*alert('{link UpdateSnippet!}');*}
+//                $.ajax({
+//                    url: ,
+//                    cache: false
+//                });
+                $.nette.ajax
+                ({
+                    url: "?do=updateSnippet"
+                });
+            }
+        });
+        $(".chosen-select").chosen();
+    </script>
+{/block}
