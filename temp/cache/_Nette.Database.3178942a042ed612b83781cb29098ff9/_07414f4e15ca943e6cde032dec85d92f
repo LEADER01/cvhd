@@ -1,1 +1,1 @@
-<?php //netteCache[01]000070a:2:{s:4:"time";s:21:"0.73354000 1405461305";s:10:"serialized";b:1;}?>a:1:{s:7:"primary";a:5:{s:13:"distributions";s:15:"id_distribution";s:5:"posts";N;s:12:"distribution";N;s:6:"genres";s:8:"id_genre";s:5:"games";s:7:"id_game";}}
+<?php //netteCache[01]000070a:2:{s:4:"time";s:21:"0.31407100 1405712501";s:10:"serialized";b:1;}?>a:1:{s:7:"primary";a:6:{s:13:"distributions";s:15:"id_distribution";s:5:"posts";N;s:12:"distribution";N;s:6:"genres";s:8:"id_genre";s:5:"games";s:7:"id_game";s:12:"games_genres";s:13:"id_game_genre";}}

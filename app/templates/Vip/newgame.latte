@@ -117,7 +117,6 @@
                                         {if $newDistOption != "false"}
                                             <script>
                                                 $("#frm-postForm-id_distribution").prepend({$newDistOption});
-//                                                $('option[value="new"]', "#frm-postForm-id_distribution").remove();
                                                 $('#frm-postForm-id_distribution').find('option[value={$newDistOptionVal}]').attr("selected",true);
                                             </script>
                                         {/if}
@@ -134,7 +133,6 @@
                                         <div class="form-group">
                                             <label class="col-lg-2 control-label">{label distribution /}</label>
                                             <div class="col-lg-10">
-                                                {*<input type="text" class="form-control" id="inputEmail" placeholder="Email">*}
                                                 {input distribution class => "form-control", autofocus => TRUE}
                                             </div>
                                         </div>
@@ -165,24 +163,11 @@
 
 {block scripts}
     {include parent}
-    {snippet jsNewModal, script}
-        {if $modalNewDistribution == 'true'}
-            {*$('.modal').modal('toggle');*}
-        {/if}
-        {*{if $modalNewDistribution == 'hide'}*}
-            {*alert('s');*}
-        {*{/if}*}
-    {/snippet}
     <script>
         var Nurl = {link updateSnippet!};
-//        alert('loaded');
         $('#frm-postForm-id_distribution').click(function() {
             if ($('#frm-postForm-id_distribution').val() == 'new') {
-                {*alert('{link UpdateSnippet!}');*}
-//                $.ajax({
-//                    url: ,
-//                    cache: false
-//                });
+
                 $.nette.ajax
                 ({
                     url: "?do=updateSnippet"

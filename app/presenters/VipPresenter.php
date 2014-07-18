@@ -33,7 +33,6 @@ class VipPresenter extends BasePresenter
     public function handleUpdateSnippet () {
         $this->template->modalNewDistribution = 'true'; //show code with popup module
         $this->redrawControl("newDistribution");
-        $this->redrawControl("jsNewModal");
     }
 
     public function handleGetLastDistribution () {
@@ -116,22 +115,30 @@ class VipPresenter extends BasePresenter
     {
         $values = $form->getValues();
 
-        var_dump($this->imageStorage);
-        echo "<BR>";
-        var_dump($values->preview_img);
-        echo "<BR>";
         var_dump($values->preview_img);
 
+        //creating unique image name
         $pathToImage = $this->imageStorage->dir."/games_previews/".Nette\Utils\Strings::random(6).".png";
         while ($this->database->table('games')->where('preview_img', $pathToImage)->count() > 0) {
             $pathToImage = $this->imageStorage->dir."/games_previews/".Nette\Utils\Strings::random(6).".png";
         }
-
+        //TODO resize image
         $values['preview_img']->move($pathToImage);
         $values->preview_img   =  $pathToImage;
 
+        echo "<BR>";
+        var_dump($values->games_genres);
+
+        $genres = $values->games_genres;
         unset($values->games_genres);
         $post = $this->database->table('games')->insert($values);
+
+        foreach ($genres as $genre) {
+            $this->database->table('games_genres')->insert(array(
+                "id_game" => $post->id_game,
+                                                            "id_genre" => $genre
+                                                            ));
+        }
 
         $this->flashMessage("Hra #".$post->id_game." byla pridana do databazi", 'success');
 

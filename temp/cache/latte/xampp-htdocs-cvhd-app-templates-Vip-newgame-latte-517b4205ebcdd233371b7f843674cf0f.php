@@ -2,13 +2,13 @@
 // source: C:\xampp\htdocs\cvhd\app/templates/Vip/newgame.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('8510545379', 'html')
+list($_b, $_g, $_l) = $template->initialize('6692483411', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lb95c0eac7ce_head')) { function _lb95c0eac7ce_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lbfc12521db5_head')) { function _lbfc12521db5_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;Latte\Macros\BlockMacros::callBlockParent($_b, 'head', get_defined_vars()) ?>
     <link rel="stylesheet" media="screen,projection,tv" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/chosen.min.css">
 <?php
@@ -17,7 +17,7 @@ if (!function_exists($_b->blocks['head'][] = '_lb95c0eac7ce_head')) { function _
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb8f7277d38f_content')) { function _lb8f7277d38f_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['content'][] = '_lb172e046cb5_content')) { function _lb172e046cb5_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
  ?>
 <div id="<?php echo $_control->getSnippetId('newGameSnippet') ?>"><?php call_user_func(reset($_b->blocks['_newGameSnippet']), $_b, $template->getParameters()) ?>
 </div><div id="<?php echo $_control->getSnippetId('newDistribution') ?>"><?php call_user_func(reset($_b->blocks['_newDistribution']), $_b, $template->getParameters()) ?>
@@ -27,7 +27,7 @@ if (!function_exists($_b->blocks['content'][] = '_lb8f7277d38f_content')) { func
 //
 // block _newGameSnippet
 //
-if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5757a84e74__newGameSnippet')) { function _lb5757a84e74__newGameSnippet($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newGameSnippet', FALSE)
+if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5b8bd9c1cc__newGameSnippet')) { function _lb5b8bd9c1cc__newGameSnippet($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newGameSnippet', FALSE)
 ;Nette\Bridges\FormsLatte\FormMacros::renderFormBegin($form = $_form = $_control["postForm"], array('class' => "form-horizontal well")) ?>
                 <fieldset>
                     <legend>Legend</legend>
@@ -131,7 +131,7 @@ if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5757a84e74__newGameS
 //
 // block _newDistribution
 //
-if (!function_exists($_b->blocks['_newDistribution'][] = '_lb0161c5a280__newDistribution')) { function _lb0161c5a280__newDistribution($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistribution', FALSE)
+if (!function_exists($_b->blocks['_newDistribution'][] = '_lbe8e6b250d0__newDistribution')) { function _lbe8e6b250d0__newDistribution($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistribution', FALSE)
 ;if ($modalNewDistribution == 'true') { ?>
             <div class="modal">
                 <div class="modal-dialog">
@@ -150,7 +150,7 @@ if (!function_exists($_b->blocks['_newDistribution'][] = '_lb0161c5a280__newDist
 //
 // block _newDistributionAdded
 //
-if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lb8344d8af57__newDistributionAdded')) { function _lb8344d8af57__newDistributionAdded($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistributionAdded', FALSE)
+if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lbdfca0baf4e__newDistributionAdded')) { function _lbdfca0baf4e__newDistributionAdded($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistributionAdded', FALSE)
 ;if (isset($success)) { ?>
                                 <div class="modal-body">
                                     <p>Nova distribuce byla pridana</p>
@@ -174,7 +174,7 @@ if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lb8344d8af57__ne
                                         <div class="form-group">
                                             <label class="col-lg-2 control-label"><?php if ($_label = $_form["distribution"]->getLabel()) echo $_label  ?></label>
                                             <div class="col-lg-10">
-                                                                                                <?php echo $_form["distribution"]->getControl()->addAttributes(array('class' => "form-control", 'autofocus' => TRUE)) ?>
+                                                <?php echo $_form["distribution"]->getControl()->addAttributes(array('class' => "form-control", 'autofocus' => TRUE)) ?>
 
                                             </div>
                                         </div>
@@ -202,11 +202,10 @@ if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lb8344d8af57__ne
 //
 // block _lastDistriutionJS
 //
-if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lbd9091f90eb__lastDistriutionJS')) { function _lbd9091f90eb__lastDistriutionJS($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('lastDistriutionJS', FALSE)
+if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lbe9c698e93c__lastDistriutionJS')) { function _lbe9c698e93c__lastDistriutionJS($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('lastDistriutionJS', FALSE)
 ;if ($newDistOption != "false") { ?>
                                             <script>
                                                 $("#frm-postForm-id_distribution").prepend(<?php echo Latte\Runtime\Filters::escapeJs($newDistOption) ?>);
-//                                                $('option[value="new"]', "#frm-postForm-id_distribution").remove();
                                                 $('#frm-postForm-id_distribution').find('option[value=<?php echo Latte\Runtime\Filters::escapeJs($newDistOptionVal) ?>]').attr("selected",true);
                                             </script>
 <?php } 
@@ -215,18 +214,13 @@ if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lbd9091f90eb__lastD
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb4e517af433_scripts')) { function _lb4e517af433_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-;Latte\Macros\BlockMacros::callBlockParent($_b, 'scripts', get_defined_vars())  ?>
-<script id="<?php echo $_control->getSnippetId('jsNewModal') ?>"><?php call_user_func(reset($_b->blocks['_jsNewModal']), $_b, $template->getParameters()) ?>
-</script>    <script>
+if (!function_exists($_b->blocks['scripts'][] = '_lb0ba2d400b8_scripts')) { function _lb0ba2d400b8_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+;Latte\Macros\BlockMacros::callBlockParent($_b, 'scripts', get_defined_vars()) ?>
+    <script>
         var Nurl = <?php echo Latte\Runtime\Filters::escapeJs($_control->link("updateSnippet!")) ?>;
-//        alert('loaded');
         $('#frm-postForm-id_distribution').click(function() {
             if ($('#frm-postForm-id_distribution').val() == 'new') {
-                //                $.ajax({
-//                    url: ,
-//                    cache: false
-//                });
+
                 $.nette.ajax
                 ({
                     url: "?do=updateSnippet"
@@ -236,13 +230,6 @@ if (!function_exists($_b->blocks['scripts'][] = '_lb4e517af433_scripts')) { func
         $(".chosen-select").chosen();
     </script>
 <?php
-}}
-
-//
-// block _jsNewModal
-//
-if (!function_exists($_b->blocks['_jsNewModal'][] = '_lb87f3d433ec__jsNewModal')) { function _lb87f3d433ec__jsNewModal($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('jsNewModal', FALSE)
-;if ($modalNewDistribution == 'true') { } 
 }}
 
 //
