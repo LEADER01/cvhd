@@ -11,6 +11,7 @@
 	<title>{ifset #title}{include title|striptags} | {/ifset}Nette Sandbox</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/screen.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/administration.css">
 	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.min.css">
 
 	<link rel="stylesheet" media="print" href="{$basePath}/css/print.css">
@@ -19,24 +20,32 @@
 </head>
 
 <body>
-	<script> document.documentElement.className+=' js' </script>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+    <script> document.documentElement.className+=' js' </script>
 
-	{include content}
+    <div id='root'>
+        <div class='box' id='header'>
+            <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+        </div>
+        <div class='box' id='content'>
+            <div class='box' id='article'>{include content}</div>
+            <div class='box' id='aside'></div>
+        </div>
+        <div class='box' id='footer'></div>
+    </div>
 
 	{block scripts}
-	<script src="{$basePath}/js/jquery.js"></script>
-	<script src="{$basePath}/js/nette.ajax.js"></script>
-	<script src="{$basePath}/js/netteForms.js"></script>
-	<script src="{$basePath}/js/main.js"></script>
-	<script src="{$basePath}/js/bootstrap.min.js"></script>
-	<script src="{$basePath}/js/chosen.jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.nette.init();
-        });
-    </script>
+        <script src="{$basePath}/js/jquery.js"></script>
+        <script src="{$basePath}/js/nette.ajax.js"></script>
+        <script src="{$basePath}/js/netteForms.js"></script>
+        <script src="{$basePath}/js/main.js"></script>
+        <script src="{$basePath}/js/bootstrap.min.js"></script>
+        <script src="{$basePath}/js/chosen.jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.nette.init();
+            });
+        </script>
 
 	{/block}
 </body>

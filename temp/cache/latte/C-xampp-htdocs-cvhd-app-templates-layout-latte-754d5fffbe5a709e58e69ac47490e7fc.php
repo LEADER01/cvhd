@@ -2,31 +2,31 @@
 // source: C:\xampp\htdocs\cvhd\app/templates/@layout.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('1509689590', 'html')
+list($_b, $_g, $_l) = $template->initialize('7014854750', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lb546eb78238_head')) { function _lb546eb78238_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lbc14538da92_head')) { function _lbc14538da92_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb48f7ea9768_scripts')) { function _lb48f7ea9768_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
-?>	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
-	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/nette.ajax.js"></script>
-	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/netteForms.js"></script>
-	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/main.js"></script>
-	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/bootstrap.min.js"></script>
-	<script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/chosen.jquery.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $.nette.init();
-        });
-    </script>
+if (!function_exists($_b->blocks['scripts'][] = '_lbe000df1520_scripts')) { function _lbe000df1520_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+?>        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/jquery.js"></script>
+        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/nette.ajax.js"></script>
+        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/netteForms.js"></script>
+        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/main.js"></script>
+        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/bootstrap.min.js"></script>
+        <script src="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/js/chosen.jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $.nette.init();
+            });
+        </script>
 
 <?php
 }}
@@ -61,6 +61,7 @@ if (empty($_l->extends) && !empty($_control->snippetMode)) {
  | <?php } ?>Nette Sandbox</title>
 
 	<link rel="stylesheet" media="screen,projection,tv" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/screen.css">
+	<link rel="stylesheet" media="screen,projection,tv" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/administration.css">
 	<link rel="stylesheet" media="screen,projection,tv" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/bootstrap.min.css">
 
 	<link rel="stylesheet" media="print" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/print.css">
@@ -71,13 +72,21 @@ call_user_func(reset($_b->blocks['head']), $_b, get_defined_vars())  ?>
 </head>
 
 <body>
-	<script> document.documentElement.className+=' js' </script>
 
-<?php $iterations = 0; foreach ($flashes as $flash) { ?>	<div class="flash <?php echo Latte\Runtime\Filters::escapeHtml($flash->type, ENT_COMPAT) ?>
+    <script> document.documentElement.className+=' js' </script>
+
+    <div id='root'>
+        <div class='box' id='header'>
+<?php $iterations = 0; foreach ($flashes as $flash) { ?>            <div class="flash <?php echo Latte\Runtime\Filters::escapeHtml($flash->type, ENT_COMPAT) ?>
 "><?php echo Latte\Runtime\Filters::escapeHtml($flash->message, ENT_NOQUOTES) ?></div>
 <?php $iterations++; } ?>
-
-<?php Latte\Macros\BlockMacros::callBlock($_b, 'content', $template->getParameters()) ?>
+        </div>
+        <div class='box' id='content'>
+            <div class='box' id='article'><?php Latte\Macros\BlockMacros::callBlock($_b, 'content', $template->getParameters()) ?></div>
+            <div class='box' id='aside'></div>
+        </div>
+        <div class='box' id='footer'></div>
+    </div>
 
 <?php call_user_func(reset($_b->blocks['scripts']), $_b, get_defined_vars())  ?>
 </body>

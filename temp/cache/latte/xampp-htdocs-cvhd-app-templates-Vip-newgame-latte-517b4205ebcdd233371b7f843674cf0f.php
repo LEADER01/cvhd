@@ -2,13 +2,13 @@
 // source: C:\xampp\htdocs\cvhd\app/templates/Vip/newgame.latte
 
 // prolog Latte\Macros\CoreMacros
-list($_b, $_g, $_l) = $template->initialize('6692483411', 'html')
+list($_b, $_g, $_l) = $template->initialize('7145979361', 'html')
 ;
 // prolog Latte\Macros\BlockMacros
 //
 // block head
 //
-if (!function_exists($_b->blocks['head'][] = '_lbfc12521db5_head')) { function _lbfc12521db5_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['head'][] = '_lb9f7414c95c_head')) { function _lb9f7414c95c_head($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;Latte\Macros\BlockMacros::callBlockParent($_b, 'head', get_defined_vars()) ?>
     <link rel="stylesheet" media="screen,projection,tv" href="<?php echo Latte\Runtime\Filters::escapeHtml(Latte\Runtime\Filters::safeUrl($basePath), ENT_COMPAT) ?>/css/chosen.min.css">
 <?php
@@ -17,7 +17,7 @@ if (!function_exists($_b->blocks['head'][] = '_lbfc12521db5_head')) { function _
 //
 // block content
 //
-if (!function_exists($_b->blocks['content'][] = '_lb172e046cb5_content')) { function _lb172e046cb5_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['content'][] = '_lb991c352821_content')) { function _lb991c352821_content($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
  ?>
 <div id="<?php echo $_control->getSnippetId('newGameSnippet') ?>"><?php call_user_func(reset($_b->blocks['_newGameSnippet']), $_b, $template->getParameters()) ?>
 </div><div id="<?php echo $_control->getSnippetId('newDistribution') ?>"><?php call_user_func(reset($_b->blocks['_newDistribution']), $_b, $template->getParameters()) ?>
@@ -27,10 +27,10 @@ if (!function_exists($_b->blocks['content'][] = '_lb172e046cb5_content')) { func
 //
 // block _newGameSnippet
 //
-if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5b8bd9c1cc__newGameSnippet')) { function _lb5b8bd9c1cc__newGameSnippet($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newGameSnippet', FALSE)
+if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb45d4bd2386__newGameSnippet')) { function _lb45d4bd2386__newGameSnippet($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newGameSnippet', FALSE)
 ;Nette\Bridges\FormsLatte\FormMacros::renderFormBegin($form = $_form = $_control["postForm"], array('class' => "form-horizontal well")) ?>
                 <fieldset>
-                    <legend>Legend</legend>
+                    <legend>Přidat novou hru</legend>
                     <div class="form-group">
                         <label class="col-lg-2 control-label"><?php if ($_label = $_form["game"]->getLabel()) echo $_label  ?></label>
                         <div class="col-lg-10">
@@ -112,6 +112,13 @@ if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5b8bd9c1cc__newGameS
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-2 control-label"></label>
+                        <div class="col-lg-10">
+                            <?php echo $_form["is_on_others"]->getControl()->addAttributes(array('class' => "form-control")) ?>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-lg-2 control-label"><?php if ($_label = $_form["preview_img"]->getLabel()) echo $_label  ?></label>
                         <div class="col-lg-10">
                             <?php echo $_form["preview_img"]->getControl()->addAttributes(array('class' => "form-control")) ?>
@@ -120,8 +127,8 @@ if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5b8bd9c1cc__newGameS
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <?php echo $_form["Add"]->getControl()->addAttributes(array('class' => "btn btn-primary")) ?>
+
                         </div>
                     </div>
                 </fieldset>
@@ -131,7 +138,7 @@ if (!function_exists($_b->blocks['_newGameSnippet'][] = '_lb5b8bd9c1cc__newGameS
 //
 // block _newDistribution
 //
-if (!function_exists($_b->blocks['_newDistribution'][] = '_lbe8e6b250d0__newDistribution')) { function _lbe8e6b250d0__newDistribution($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistribution', FALSE)
+if (!function_exists($_b->blocks['_newDistribution'][] = '_lb285b330f61__newDistribution')) { function _lb285b330f61__newDistribution($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistribution', FALSE)
 ;if ($modalNewDistribution == 'true') { ?>
             <div class="modal">
                 <div class="modal-dialog">
@@ -150,7 +157,7 @@ if (!function_exists($_b->blocks['_newDistribution'][] = '_lbe8e6b250d0__newDist
 //
 // block _newDistributionAdded
 //
-if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lbdfca0baf4e__newDistributionAdded')) { function _lbdfca0baf4e__newDistributionAdded($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistributionAdded', FALSE)
+if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lb89e5dc3514__newDistributionAdded')) { function _lb89e5dc3514__newDistributionAdded($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('newDistributionAdded', FALSE)
 ;if (isset($success)) { ?>
                                 <div class="modal-body">
                                     <p>Nova distribuce byla pridana</p>
@@ -202,7 +209,7 @@ if (!function_exists($_b->blocks['_newDistributionAdded'][] = '_lbdfca0baf4e__ne
 //
 // block _lastDistriutionJS
 //
-if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lbe9c698e93c__lastDistriutionJS')) { function _lbe9c698e93c__lastDistriutionJS($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('lastDistriutionJS', FALSE)
+if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lb7ff65e8551__lastDistriutionJS')) { function _lb7ff65e8551__lastDistriutionJS($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('lastDistriutionJS', FALSE)
 ;if ($newDistOption != "false") { ?>
                                             <script>
                                                 $("#frm-postForm-id_distribution").prepend(<?php echo Latte\Runtime\Filters::escapeJs($newDistOption) ?>);
@@ -214,7 +221,7 @@ if (!function_exists($_b->blocks['_lastDistriutionJS'][] = '_lbe9c698e93c__lastD
 //
 // block scripts
 //
-if (!function_exists($_b->blocks['scripts'][] = '_lb0ba2d400b8_scripts')) { function _lb0ba2d400b8_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_b->blocks['scripts'][] = '_lb28b7132854_scripts')) { function _lb28b7132854_scripts($_b, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;Latte\Macros\BlockMacros::callBlockParent($_b, 'scripts', get_defined_vars()) ?>
     <script>
         var Nurl = <?php echo Latte\Runtime\Filters::escapeJs($_control->link("updateSnippet!")) ?>;

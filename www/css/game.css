@@ -1,0 +1,81 @@
+.box { float: left; }
+#root { max-width: 1200px; margin: 0 auto; }
+
+#header { width: 100%; }
+#content { width: 100%; }
+#footer { width: 100%; }
+#gameName { width: 90%; }
+#box1 { width: 90%; }
+#box2 { width: 95%; }
+#image { width: 30%; }
+#other_info { width: 70%; }
+#dataList { width: 50%; }
+#consoleButtons { width: 50%; }
+#box3 { width: 90%; }
+#box11 { width: 100%; }
+
+
+/* Laptop/Tablet (1024px) */
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (orientation: landscape) {
+	#header { width: 100%; }
+	#content { width: 100%; }
+	#footer { width: 100%; }
+	#gameName { width: 100%; }
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+	#image { width: 100%; }
+	#other_info { width: 100%; }
+	#dataList { width: 100%; }
+	#consoleButtons { width: 100%; }
+	#box3 { width: 100%; }
+	#box11 { width: 100%; }
+}
+
+/* Tablet Portrait (768px) */
+@media only screen and (min-width: 321px) and (max-width: 1024px) and (orientation: portrait) {
+	#header { width: 100%; }
+	#content { width: 100%; }
+	#footer { width: 100%; }
+	#gameName { width: 100%; }
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+	#image { width: 100%; }
+	#other_info { width: 100%; }
+	#dataList { width: 100%; }
+	#consoleButtons { width: 100%; }
+	#box3 { width: 100%; }
+	#box11 { width: 100%; }
+}
+
+/* Phone Landscape (480px) */
+@media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
+	#header { width: 100%; }
+	#content { width: 100%; }
+	#footer { width: 100%; }
+	#gameName { width: 100%; }
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+	#image { width: 100%; }
+	#other_info { width: 100%; }
+	#dataList { width: 100%; }
+	#consoleButtons { width: 100%; }
+	#box3 { width: 100%; }
+	#box11 { width: 100%; }
+}
+
+/* Phone Portrait (320px) */
+@media only screen and (max-width: 320px) {
+	#header { width: 100%; }
+	#content { width: 100%; }
+	#footer { width: 100%; }
+	#gameName { width: 100%; }
+	#box1 { width: 100%; }
+	#box2 { width: 100%; }
+	#image { width: 100%; }
+	#other_info { width: 100%; }
+	#dataList { width: 100%; }
+	#consoleButtons { width: 100%; }
+	#box3 { width: 100%; }
+	#box11 { width: 100%; }
+}
+
